@@ -49,58 +49,54 @@ with gr.Blocks(
     fill_width=False,
 ) as demo:
     gr.Markdown(
-        "# CDR-Based Cognitive-Status Classification\n"
-        "### Ensemble machine-learning decision-support prototype"
+        "# Ensemble Machine Learning Prototype for Dementia-Related Classification\n"
+        "### Research decision-support interface using CDR-based categories"
     )
     gr.Markdown(NOTICE)
 
     with gr.Row():
         with gr.Column():
-            sex = gr.Radio(["Female", "Male"], label="Sex", value="Female")
-            age = gr.Number(label="Age (years)", minimum=33, maximum=96, step=1, value=72)
+            sex = gr.Radio(["Female", "Male"], label="Sex", value=None)
+            age = gr.Number(label="Age (years)", minimum=33, maximum=96, step=1, value=None)
             ses = gr.Number(
                 label="Socioeconomic status (1 = highest, 5 = lowest)",
                 minimum=1,
                 maximum=5,
                 step=1,
-                value=2,
+                value=None,
             )
-            mmse = gr.Number(label="MMSE score", minimum=14, maximum=30, step=1, value=28)
+            mmse = gr.Number(label="MMSE score", minimum=14, maximum=30, step=1, value=None)
         with gr.Column():
             etiv = gr.Number(
                 label="Estimated total intracranial volume (eTIV, cm3)",
                 minimum=1123,
                 maximum=1992,
-                value=1400,
+                value=None,
             )
             nwbv = gr.Number(
                 label="Normalised whole-brain volume (nWBV)",
                 minimum=0.644,
                 maximum=0.847,
-                value=0.755,
+                value=None,
             )
             asf = gr.Number(
                 label="Atlas scaling factor (ASF)",
                 minimum=0.881,
                 maximum=1.563,
-                value=1.250,
+                value=None,
             )
 
-    gr.Markdown(
-        "Values outside these ranges are not accepted because they were not "
-        "represented in the eligible analysis samples."
-    )
-    result = gr.Markdown("### Result\n\nEnter a fictional case and select **Predict**.")
+    result = gr.Markdown("### Result\n\nLoad a sample case and select **Predict**.")
 
     inputs = [sex, age, ses, mmse, etiv, nwbv, asf]
     with gr.Row():
         predict_button = gr.Button("Predict", variant="primary")
         clear_button = gr.ClearButton(inputs + [result], value="Clear")
 
-    gr.Markdown("### Fictional demonstration cases")
+    gr.Markdown("### Sample cases for evaluation")
     with gr.Row():
-        example_a = gr.Button("Load fictional example A")
-        example_b = gr.Button("Load fictional example B")
+        example_a = gr.Button("Load sample case 1")
+        example_b = gr.Button("Load sample case 2")
 
     predict_button.click(
         fn=present_prediction,
