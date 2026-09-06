@@ -1,0 +1,11 @@
+{
+  "Python": "3.13.15",
+  "scikit-learn": "1.6.1",
+  "NumPy": "2.1.3",
+  "pandas": "2.2.3",
+  "Cross-sectional SHA256": "059f0c5ea237a20e1455c2a22decac1224f542bf108d7befd0e12a9b48abfe57",
+  "Longitudinal SHA256": "d2f0a15ff35fa4a65c35c064b848fc1b396e9d2f4aec935c88d6e1588d31d40e",
+  "Random state": 42,
+  "Selected architecture": "Soft Voting Ensemble",
+  "Best ensemble architecture": "Soft Voting Ensemble"
+}

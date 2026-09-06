@@ -1,0 +1,22 @@
+# OASIS/Kaggle data files are not redistributed
+data/*.csv
+data/*.xls
+data/*.xlsx
+
+# Python and notebook temporary files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Local configuration and operating-system files
+.env
+.DS_Store
+Thumbs.db
+
+# Participant research material must never enter the code repository
+participant_data/
+consent_records/
+qualtrics_exports/
+
