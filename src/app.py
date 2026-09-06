@@ -57,33 +57,27 @@ with gr.Blocks(
     with gr.Row():
         with gr.Column():
             sex = gr.Radio(["Female", "Male"], label="Sex", value=None)
-            age = gr.Number(label="Age (years)", minimum=33, maximum=96, step=1, value=None)
-            ses = gr.Number(
+            age = gr.Textbox(label="Age (years)", placeholder="Enter a fictional value")
+            ses = gr.Textbox(
                 label="Socioeconomic status (1 = highest, 5 = lowest)",
-                minimum=1,
-                maximum=5,
-                step=1,
-                value=None,
+                placeholder="Enter a fictional value",
             )
-            mmse = gr.Number(label="MMSE score", minimum=14, maximum=30, step=1, value=None)
+            mmse = gr.Textbox(
+                label="MMSE score",
+                placeholder="Enter a fictional value",
+            )
         with gr.Column():
-            etiv = gr.Number(
+            etiv = gr.Textbox(
                 label="Estimated total intracranial volume (eTIV, cm3)",
-                minimum=1123,
-                maximum=1992,
-                value=None,
+                placeholder="Enter a fictional value",
             )
-            nwbv = gr.Number(
+            nwbv = gr.Textbox(
                 label="Normalised whole-brain volume (nWBV)",
-                minimum=0.644,
-                maximum=0.847,
-                value=None,
+                placeholder="Enter a fictional value",
             )
-            asf = gr.Number(
+            asf = gr.Textbox(
                 label="Atlas scaling factor (ASF)",
-                minimum=0.881,
-                maximum=1.563,
-                value=None,
+                placeholder="Enter a fictional value",
             )
 
     result = gr.Markdown("### Result\n\nLoad a sample case and select **Predict**.")

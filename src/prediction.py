@@ -7,7 +7,6 @@ notebook. Do not use this module to load model files from untrusted sources.
 from __future__ import annotations
 
 from functools import lru_cache
-from numbers import Real
 from pathlib import Path
 from typing import Any
 
@@ -58,10 +57,19 @@ def load_bundle(model_path: str | Path = DEFAULT_MODEL_PATH) -> dict[str, Any]:
 
 def _validated_number(field: str, value: Any) -> float:
     label = DISPLAY_NAMES[field]
-    if value is None or isinstance(value, bool) or not isinstance(value, Real):
+    if value is None or isinstance(value, bool):
         raise ValueError(f"{label} is required and must be numeric.")
 
-    number = float(value)
+    if isinstance(value, str):
+        value = value.strip()
+        if not value:
+            raise ValueError(f"{label} is required and must be numeric.")
+
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        raise ValueError(f"{label} is required and must be numeric.") from None
+
     if not np.isfinite(number):
         raise ValueError(f"{label} must be a finite number.")
 
@@ -133,4 +141,3 @@ def predict_case(
         "probability": probability,
         "threshold": threshold,
     }
-

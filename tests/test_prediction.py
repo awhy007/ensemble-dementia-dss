@@ -63,3 +63,13 @@ def test_predictions_are_deterministic():
     first = predict_case(*VALID_CASE)
     second = predict_case(*VALID_CASE)
     assert first == second
+
+
+def test_numeric_text_entries_are_accepted():
+    result = predict_case("Female", "72", "2", "28", "1400", "0.755", "1.250")
+    assert result["category"] in {"CDR = 0", "CDR > 0"}
+
+
+def test_non_numeric_text_is_rejected_cleanly():
+    with pytest.raises(ValueError, match="Age is required and must be numeric"):
+        predict_case("Female", "not an age", "2", "28", "1400", "0.755", "1.250")
