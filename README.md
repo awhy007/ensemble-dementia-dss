@@ -44,7 +44,7 @@ pip install -r requirements.txt
 python src/app.py
 ```
 
-After the application starts, Gradio prints a local address, normally `http://127.0.0.1:7860`. Open that address on the same computer to use the prototype. It is a local development address, not a public deployment link.
+After the application starts, open the local address printed by Gradio on the same computer. This is for local development and is not a public deployment link.
 
 To run the automated checks, install the development requirements and execute:
 
