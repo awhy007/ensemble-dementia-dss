@@ -1,6 +1,6 @@
 # Project documentation
 
-This directory contains the prototype requirements, system design, functional test evidence and interface screenshots. The project risk register and map will be added as the dissertation evidence is consolidated.
+This directory contains the prototype requirements, system design, functional test evidence and interface screenshots. The risk register, risk map, ethics documents and participant-evaluation evidence are retained in the dissertation rather than duplicated in the public code repository.
 
 - `prototype_requirements.md`: functional, input, output and safety requirements.
 - `system_design.md`: high- and low-level design of the modelling and interface components.

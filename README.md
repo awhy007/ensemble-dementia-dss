@@ -44,11 +44,18 @@ pip install -r requirements.txt
 python src/app.py
 ```
 
-Open `http://127.0.0.1:7860` in a browser. Run the automated checks with `python -m pytest -q` after installing `requirements-dev.txt`.
+After the application starts, Gradio prints a local address, normally `http://127.0.0.1:7860`. Open that address on the same computer to use the prototype. It is a local development address, not a public deployment link.
+
+To run the automated checks, install the development requirements and execute:
+
+```powershell
+pip install -r requirements-dev.txt
+python -m pytest -q
+```
 
 ## Repository status
 
-The validated modelling notebook, locked result files, working prototype, automated tests and design/test evidence are included. The risk register and participant-evaluation evidence remain dissertation-stage work.
+The validated modelling notebook, locked result files, working prototype, automated tests and technical design and testing evidence are included. Ethics documents, participant responses and the dissertation appendices are retained separately and are not published in this repository.
 
 ## Repository structure
 
